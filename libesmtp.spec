@@ -50,7 +50,7 @@ Static libesmtp libraries.
 %description static -l pl
 Statyczne biblioteki libesmtp.
 
-%prep 
+%prep
 %setup -q
 
 %build
