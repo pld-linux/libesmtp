@@ -2,7 +2,7 @@ Summary:	SMTP client library
 Summary(pl):	Biblioteka kliencka SMTP
 Name:		libesmtp
 Version:	1.0
-Release:	0.1
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.stafford.uklinux.net/libesmtp/%{name}-%{version}.tar.bz2
@@ -55,7 +55,7 @@ Statyczne biblioteki libesmtp.
 %setup -q
 
 %build
-
+cp -f /usr/share/automake/config.sub  .
 %configure2_13 \
 	%{?debug:--enable-debug}%{!?debug:--disable-debug} \
 	--with-auth-plugin-dir=%{_libdir}/esmtp-plugins \
@@ -68,7 +68,8 @@ Statyczne biblioteki libesmtp.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
