@@ -55,7 +55,8 @@ Statyczne biblioteki libesmtp.
 %setup -q
 
 %build
-%configure \
+
+%configure2_13 \
 	%{?debug:--enable-debug}%{!?debug:--disable-debug} \
 	--with-auth-plugin-dir=%{_libdir}/esmtp-plugins \
 	--enable-pthreads \
