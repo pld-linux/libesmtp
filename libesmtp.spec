@@ -58,8 +58,8 @@ Statyczne biblioteki libesmtp.
 	%{?debug:--enable-debug}%{!?debug:--disable-debug} \
 	--with-auth-plugin-dir=%{_libdir}/esmtp-plugins \
 	--enable-pthreads \
-	--disable-ltdl-install \
-	--enable-require-all-recipients=yes \
+	--disable-isoc \
+	--enable-ntlm \
 	--enable-etrn
 %{__make}
 
