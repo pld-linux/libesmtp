@@ -90,8 +90,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 %attr(755,root,root) %{_bindir}/libesmtp-config
 %attr(755,root,root) %{_libdir}/lib*.so
-%attr(755,root,root) %{_libdir}/lib*.la
-%attr(755,root,root) %{_libdir}/esmtp-plugins/*.la
+%{_libdir}/lib*.la
+%{_libdir}/esmtp-plugins/*.la
 %{_includedir}/*
 
 %files static
