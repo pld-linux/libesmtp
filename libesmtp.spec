@@ -1,12 +1,12 @@
 Summary:	SMTP client library
 Summary(pl):	Biblioteka kliencka SMTP
 Name:		libesmtp
-Version:	1.0
+Version:	1.0.3r1
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.stafford.uklinux.net/libesmtp/%{name}-%{version}.tar.bz2
-# Source0-md5: 6da5742bd8119a48a8385adfad14ea85
+# Source0-md5:	c07aa79293aa36298626fe5e68d6bfba
 URL:		http://www.stafford.uklinux.net/libesmtp/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
