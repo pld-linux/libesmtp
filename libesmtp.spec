@@ -1,6 +1,6 @@
 Summary:	SMTP client library
 Name:		libesmtp
-Version:	0.8.3
+Version:	0.8.4
 Release:	1
 License:	LGPL
 Group:		Libraries
@@ -8,6 +8,9 @@ Group(de):	Libraries
 Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
+Group(pt_BR):	Bibliotecas
+Group(ru):	Библиотеки
+Group(uk):	Б╕бл╕отеки
 Source0:	http://www.stafford.uklinux.net/libesmtp/%{name}-%{version}.tar.bz2
 URL:		http://www.stafford.uklinux.net/libesmtp/
 BuildRequires:	autoconf >= 2.50
@@ -27,8 +30,12 @@ functionality is not the program's primary purpose.
 Summary:	Development resources for libesmtp
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	Разработка/Библиотеки
+Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 
 %description devel
@@ -38,8 +45,12 @@ Development resources for libesmtp.
 Summary:	Static libesmtp libraries
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	Разработка/Библиотеки
+Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 
 %description static
@@ -77,7 +88,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %dir %{_libdir}/esmtp-plugins
 %attr(755,root,root) %{_libdir}/esmtp-plugins/*.so
-%attr(755,root,root) %{_libdir}/esmtp-plugins/*.la
 
 %files devel
 %defattr(644,root,root,755)
@@ -85,6 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/libesmtp-config
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/esmtp-plugins/*.la
 %{_includedir}/*
 
 %files static
