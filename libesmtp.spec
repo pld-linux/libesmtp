@@ -54,9 +54,6 @@ Statyczne biblioteki libesmtp.
 %setup -q
 
 %build
-(cd libltdl
-%{__aclocal}
-%{__autoconf})
 %configure \
 	%{?debug:--enable-debug}%{!?debug:--disable-debug} \
 	--with-auth-plugin-dir=%{_libdir}/esmtp-plugins \
