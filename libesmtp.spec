@@ -66,8 +66,6 @@ Statyczne biblioteki libesmtp.
 	--enable-etrn
 %{__make}
 
-gzip -9nf AUTHORS NEWS Notes README
-
 %install
 rm -rf $RPM_BUILD_ROOT
 
@@ -87,7 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc *.gz
+%doc AUTHORS NEWS Notes README
 %attr(755,root,root) %{_bindir}/libesmtp-config
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
