@@ -1,6 +1,6 @@
 Summary:	SMTP client library
 Name:		libesmtp
-Version:	0.8.1
+Version:	0.8.3
 Release:	1
 License:	LGPL
 Group:		Libraries
@@ -10,8 +10,10 @@ Group(fr):	Librairies
 Group(pl):	Biblioteki
 Source0:	http://www.stafford.uklinux.net/libesmtp/%{name}-%{version}.tar.bz2
 URL:		http://www.stafford.uklinux.net/libesmtp/
-ByuildRequires:	libltdl-devel
-ByuildRequires:	openssl-devel >= 0.9.6a
+BuildRequires:	autoconf >= 2.50
+BuildRequires:	automake
+BuildRequires:	libltdl-devel
+BuildRequires:	openssl-devel >= 0.9.6a
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -27,7 +29,7 @@ Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
-Require:	%{name} = %{version}
+Requires:	%{name} = %{version}
 
 %description devel
 Development resources for libesmtp.
@@ -38,18 +40,22 @@ Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
-Require:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}
 
-%description devel
+%description static
 Static libesmtp libraries.
 
 %prep 
 %setup -q
 
 %build
+(cd libltdl
+aclocal
+autoconf)
 %configure \
 	--with-auth-plugin-dir=%{_libdir}/esmtp-plugins \
 	--enable-pthreads \
+	--disable-ltdl-install \
 	--enable-require-all-recipients=yes
 %{__make}
 
