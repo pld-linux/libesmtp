@@ -1,7 +1,7 @@
 Summary:	SMTP client library
 Name:		libesmtp
 Version:	0.8.4
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Group(de):	Libraries
@@ -64,10 +64,12 @@ Static libesmtp libraries.
 aclocal
 autoconf)
 %configure \
+	%{?debug:--enable-debug}%{!?debug:--disable-debug} \
 	--with-auth-plugin-dir=%{_libdir}/esmtp-plugins \
 	--enable-pthreads \
 	--disable-ltdl-install \
-	--enable-require-all-recipients=yes
+	--enable-require-all-recipients=yes \
+	--enable-etrn
 %{__make}
 
 gzip -9nf AUTHORS NEWS Notes README
