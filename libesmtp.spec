@@ -55,7 +55,7 @@ Statyczne biblioteki libesmtp.
 
 %build
 (cd libltdl
-aclocal
+%{__aclocal}
 %{__autoconf})
 %configure \
 	%{?debug:--enable-debug}%{!?debug:--disable-debug} \
