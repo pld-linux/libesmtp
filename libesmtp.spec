@@ -1,7 +1,8 @@
 Summary:	SMTP client library
+Summary(pl):	Biblioteka kliencka SMTP
 Name:		libesmtp
 Version:	0.8.4
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Libraries
 Group(de):	Libraries
@@ -26,8 +27,15 @@ Exim. It may be used as part of a Mail User Agent (MUA) or another
 program that must be able to post electronic mail but where mail
 functionality is not the program's primary purpose.
 
+%description -l pl
+LibESMTP to biblioteka obs³uguj±ca wysy³anie poczty elektronicznej
+przy u¿yciu SMTP do prekonfigurowanego MTA, np. exima. Mo¿e byæ
+u¿ywana jako czê¶æ MTA lub innego programu, który musi umieæ wysy³aæ
+pocztê.
+
 %package devel
 Summary:	Development resources for libesmtp
+Summary(pl):	Pliki dla programistów u¿ywaj±cych libesmtp
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
 Group(es):	Desarrollo/Bibliotecas
@@ -41,8 +49,12 @@ Requires:	%{name} = %{version}
 %description devel
 Development resources for libesmtp.
 
+%description devel -l pl
+Pliki dla programistów u¿ywaj±cych libesmtp.
+
 %package static
 Summary:	Static libesmtp libraries
+Summary(pl):	Statyczne biblioteki libesmtp
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
 Group(es):	Desarrollo/Bibliotecas
@@ -55,6 +67,9 @@ Requires:	%{name}-devel = %{version}
 
 %description static
 Static libesmtp libraries.
+
+%description static -l pl
+Statyczne biblioteki libesmtp.
 
 %prep 
 %setup -q
@@ -79,11 +94,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
