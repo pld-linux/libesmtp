@@ -6,6 +6,7 @@ Release:	0.1
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.stafford.uklinux.net/libesmtp/%{name}-%{version}.tar.bz2
+# Source0-md5: 6da5742bd8119a48a8385adfad14ea85
 URL:		http://www.stafford.uklinux.net/libesmtp/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
