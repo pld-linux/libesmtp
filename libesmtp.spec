@@ -2,15 +2,14 @@ Summary:	SMTP client library
 Summary(pl):	Biblioteka kliencka SMTP
 Name:		libesmtp
 Version:	1.0.3r1
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
+#Source0Download: http://www.stafford.uklinux.net/libesmtp/download.html
 Source0:	http://www.stafford.uklinux.net/libesmtp/%{name}-%{version}.tar.bz2
 # Source0-md5:	c07aa79293aa36298626fe5e68d6bfba
 URL:		http://www.stafford.uklinux.net/libesmtp/
-BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
-BuildRequires:	libltdl-devel
 BuildRequires:	openssl-devel >= 0.9.7c
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -31,7 +30,8 @@ pocztê.
 Summary:	Development resources for libesmtp
 Summary(pl):	Pliki dla programistów u¿ywaj±cych libesmtp
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
+Requires:	openssl-devel >= 0.9.7c
 
 %description devel
 Development resources for libesmtp.
@@ -43,7 +43,7 @@ Pliki dla programistów u¿ywaj±cych libesmtp.
 Summary:	Static libesmtp libraries
 Summary(pl):	Statyczne biblioteki libesmtp
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static libesmtp libraries.
@@ -56,13 +56,13 @@ Statyczne biblioteki libesmtp.
 
 %build
 cp -f /usr/share/automake/config.sub  .
-%configure2_13 \
+%configure \
 	%{?debug:--enable-debug}%{!?debug:--disable-debug} \
-	--with-auth-plugin-dir=%{_libdir}/esmtp-plugins \
+	--enable-etrn \
+	--enable-ntlm \
 	--enable-pthreads \
-	--disable-ltdl-install \
 	--enable-require-all-recipients=yes \
-	--enable-etrn
+	--with-auth-plugin-dir=%{_libdir}/esmtp-plugins
 %{__make}
 
 %install
@@ -70,6 +70,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+rm -f $RPM_BUILD_ROOT%{_libdir}/esmtp-plugins/*.{a,la}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -79,20 +81,18 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%doc AUTHORS NEWS Notes README
+%attr(755,root,root) %{_libdir}/libesmtp.so.*.*
 %dir %{_libdir}/esmtp-plugins
 %attr(755,root,root) %{_libdir}/esmtp-plugins/*.so
 
 %files devel
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS Notes README
 %attr(755,root,root) %{_bindir}/libesmtp-config
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-%{_libdir}/esmtp-plugins/*.la
-%{_includedir}/*
+%attr(755,root,root) %{_libdir}/libesmtp.so
+%{_libdir}/libesmtp.la
+%{_includedir}/*.h
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
-%{_libdir}/esmtp-plugins/*.a
+%{_libdir}/libesmtp.a
