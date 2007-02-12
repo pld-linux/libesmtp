@@ -1,5 +1,5 @@
 Summary:	SMTP client library
-Summary(pl):	Biblioteka kliencka SMTP
+Summary(pl.UTF-8):   Biblioteka kliencka SMTP
 Name:		libesmtp
 Version:	1.0.3r1
 Release:	3
@@ -20,15 +20,15 @@ Exim. It may be used as part of a Mail User Agent (MUA) or another
 program that must be able to post electronic mail but where mail
 functionality is not the program's primary purpose.
 
-%description -l pl
-LibESMTP to biblioteka obs³uguj±ca wysy³anie poczty elektronicznej
-przy u¿yciu SMTP do prekonfigurowanego MTA, np. exima. Mo¿e byæ
-u¿ywana jako czê¶æ MTA lub innego programu, który musi umieæ wysy³aæ
-pocztê.
+%description -l pl.UTF-8
+LibESMTP to biblioteka obsÅ‚ugujÄ…ca wysyÅ‚anie poczty elektronicznej
+przy uÅ¼yciu SMTP do prekonfigurowanego MTA, np. exima. MoÅ¼e byÄ‡
+uÅ¼ywana jako czÄ™Å›Ä‡ MTA lub innego programu, ktÃ³ry musi umieÄ‡ wysyÅ‚aÄ‡
+pocztÄ™.
 
 %package devel
 Summary:	Development resources for libesmtp
-Summary(pl):	Pliki dla programistów u¿ywaj±cych libesmtp
+Summary(pl.UTF-8):   Pliki dla programistÃ³w uÅ¼ywajÄ…cych libesmtp
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	openssl-devel >= 0.9.7c
@@ -36,19 +36,19 @@ Requires:	openssl-devel >= 0.9.7c
 %description devel
 Development resources for libesmtp.
 
-%description devel -l pl
-Pliki dla programistów u¿ywaj±cych libesmtp.
+%description devel -l pl.UTF-8
+Pliki dla programistÃ³w uÅ¼ywajÄ…cych libesmtp.
 
 %package static
 Summary:	Static libesmtp libraries
-Summary(pl):	Statyczne biblioteki libesmtp
+Summary(pl.UTF-8):   Statyczne biblioteki libesmtp
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static libesmtp libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczne biblioteki libesmtp.
 
 %prep
