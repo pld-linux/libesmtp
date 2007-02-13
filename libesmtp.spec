@@ -1,5 +1,5 @@
 Summary:	SMTP client library
-Summary(pl.UTF-8):   Biblioteka kliencka SMTP
+Summary(pl.UTF-8):	Biblioteka kliencka SMTP
 Name:		libesmtp
 Version:	1.0.3r1
 Release:	3
@@ -28,7 +28,7 @@ pocztę.
 
 %package devel
 Summary:	Development resources for libesmtp
-Summary(pl.UTF-8):   Pliki dla programistów używających libesmtp
+Summary(pl.UTF-8):	Pliki dla programistów używających libesmtp
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	openssl-devel >= 0.9.7c
@@ -41,7 +41,7 @@ Pliki dla programistów używających libesmtp.
 
 %package static
 Summary:	Static libesmtp libraries
-Summary(pl.UTF-8):   Statyczne biblioteki libesmtp
+Summary(pl.UTF-8):	Statyczne biblioteki libesmtp
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
