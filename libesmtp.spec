@@ -13,6 +13,8 @@ BuildRequires:	automake
 BuildRequires:	openssl-devel >= 0.9.7c
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%undefine	__cxx
+
 %description
 LibESMTP is a library to manage posting (or submission of) electronic
 mail using SMTP to a preconfigured Mail Transport Agent (MTA) such as
