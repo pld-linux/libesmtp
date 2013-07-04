@@ -1,13 +1,13 @@
 Summary:	SMTP client library
 Summary(pl.UTF-8):	Biblioteka kliencka SMTP
 Name:		libesmtp
-Version:	1.0.4
-Release:	3
-License:	LGPL
+Version:	1.0.6
+Release:	1
+License:	LGPL v2.1+
 Group:		Libraries
 #Source0Download: http://www.stafford.uklinux.net/libesmtp/download.html
 Source0:	http://www.stafford.uklinux.net/libesmtp/%{name}-%{version}.tar.bz2
-# Source0-md5:	8b4e8a794adc46268f0c6a0b3fb79486
+# Source0-md5:	bf3915e627fd8f35524a8fdfeed979c8
 URL:		http://www.stafford.uklinux.net/libesmtp/
 BuildRequires:	automake
 BuildRequires:	openssl-devel >= 0.9.7c
@@ -63,7 +63,6 @@ cp -f /usr/share/automake/config.sub  .
 	--enable-etrn \
 	--enable-ntlm \
 	--enable-pthreads \
-	--enable-require-all-recipients=yes \
 	--with-auth-plugin-dir=%{_libdir}/esmtp-plugins
 %{__make}
 
@@ -73,7 +72,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/esmtp-plugins/*.{a,la}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/esmtp-plugins/*.{a,la}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -83,17 +82,20 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS Notes README
-%attr(755,root,root) %{_libdir}/libesmtp.so.*.*
+%doc AUTHORS ChangeLog NEWS Notes README
+%attr(755,root,root) %{_libdir}/libesmtp.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libesmtp.so.6
 %dir %{_libdir}/esmtp-plugins
-%attr(755,root,root) %{_libdir}/esmtp-plugins/*.so
+%attr(755,root,root) %{_libdir}/esmtp-plugins/sasl-*.so
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/libesmtp-config
 %attr(755,root,root) %{_libdir}/libesmtp.so
 %{_libdir}/libesmtp.la
-%{_includedir}/*.h
+%{_includedir}/auth-client.h
+%{_includedir}/auth-plugin.h
+%{_includedir}/libesmtp.h
 
 %files static
 %defattr(644,root,root,755)
