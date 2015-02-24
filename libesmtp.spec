@@ -2,7 +2,7 @@ Summary:	SMTP client library
 Summary(pl.UTF-8):	Biblioteka kliencka SMTP
 Name:		libesmtp
 Version:	1.0.6
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		Libraries
 #Source0Download: http://www.stafford.uklinux.net/libesmtp/download.html
