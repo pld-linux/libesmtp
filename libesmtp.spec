@@ -5,10 +5,10 @@ Version:	1.0.6
 Release:	2
 License:	LGPL v2.1+
 Group:		Libraries
-#Source0Download: http://www.stafford.uklinux.net/libesmtp/download.html
-Source0:	http://www.stafford.uklinux.net/libesmtp/%{name}-%{version}.tar.bz2
+#Source0Download: http://brianstafford.info/libesmtp/download.html
+Source0:	http://brianstafford.info/libesmtp/%{name}-%{version}.tar.bz2
 # Source0-md5:	bf3915e627fd8f35524a8fdfeed979c8
-URL:		http://www.stafford.uklinux.net/libesmtp/
+URL:		http://brianstafford.info/libesmtp/
 BuildRequires:	automake
 BuildRequires:	openssl-devel >= 0.9.7c
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
