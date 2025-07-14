@@ -55,7 +55,7 @@ Statyczne biblioteki libesmtp.
 
 %prep
 %setup -q -n libESMTP-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %meson build
