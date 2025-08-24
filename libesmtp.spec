@@ -13,6 +13,7 @@ URL:		https://libesmtp.github.io/
 BuildRequires:	meson
 BuildRequires:	ninja >= 1.5
 BuildRequires:	openssl-devel >= 1.1.0
+BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
